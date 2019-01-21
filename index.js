@@ -83,6 +83,10 @@ Plugin.prototype.apply = function(compiler) {
             var ep = entrypoints.get(chunk.name).chunks.map(function (_chunk) {
               return _chunk.name;
             });
+
+            ep = ep.filter(function (chunk) {
+              return chunk !== 'vendor';
+            });
           }
         }
 
